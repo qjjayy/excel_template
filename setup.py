@@ -19,7 +19,7 @@ with open(path.join(basedir, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='excel-template',  # 包名称
-    version='0.1.3',  # 版本
+    version='0.1.5',  # 版本
     url='https://github.com/qjjayy/excel_template',
     license='MIT',
     author='Junjie Qiu',

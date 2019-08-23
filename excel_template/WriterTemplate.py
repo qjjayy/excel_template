@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
 from openpyxl.styles import Border
+from openpyxl.cell.cell import ILLEGAL_CHARACTERS_RE
 from copy import copy
 
 
@@ -124,6 +125,8 @@ class WriterTemplate(object):
                     value = ''
                 else:
                     value = data[field_name]
+                    if type(value) == str or type(value) == unicode:
+                        value = ILLEGAL_CHARACTERS_RE.sub(r'', value)  # 正则去掉非法字符
             except Exception:
                 raise Exception('data({key}) lost!'.format(key=field_name))
             cell.value = value
